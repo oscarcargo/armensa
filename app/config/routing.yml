@@ -1,0 +1,5 @@
+armensa_base:
+    resource: "@ArmensaBaseBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
