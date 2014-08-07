@@ -1,1 +1,40 @@
-Hello {{ name }}!
+{%extends "::base.html.twig"%}
+{%block body-%}
+<div class="row-fluid">
+   <br>
+    <div class="span8 jumbotron">
+        <h3> <i class="fa fa-cogs fa-1x"></i> Configuraci&oacute;n</h1>
+       <hr>
+        <a class="btn  btn-primary btn-lg" href="#">
+              <i class="fa fa-truck fa-2x pull-left"></i> Veh&iacute;culos
+        </a>
+
+        <a class="btn  btn-primary btn-lg" href="#">
+              <i class="fa fa-sitemap fa-2x pull-left"></i> Tipo de Veh&iacute;culo
+        </a>
+        <a class="btn  btn-primary btn-lg" href="#">
+              <i class="fa fa-group fa-2x pull-left"></i> Conductores
+        </a>
+        <a class="btn  btn-primary btn-lg" href="#">
+              <i class="fa fa-cog fa-2x pull-left"></i> Tipo de Proceso
+        </a>
+        <a class="btn  btn-primary btn-lg" href="#">
+              <i class="fa fa-credit-card fa-2x pull-left"></i> Clientes
+        </a>
+        <h3><i class="fa fa-calendar fa-1x"></i> Operaciones</h3><hr>
+        <a class="btn  btn-primary btn-lg" href="#">
+              <i class="fa fa-road fa-2x pull-left"></i> Histórico de Viajes
+        </a>
+        <h3><i class="fa fa-sliders fa-1x"></i> Informes</h3><hr>
+        <a class="btn  btn-primary btn-lg" href="#">
+              <i class="fa fa-road fa-2x pull-left"></i> Viajes Por Veh&iacute;culo
+        </a>
+        <a class="btn  btn-primary btn-lg" href="#">
+              <i class="fa fa-road fa-2x pull-left"></i> Viajes Por Cliente
+        </a>
+        <a class="btn  btn-primary btn-lg" href="#">
+              <i class="fa fa-money fa-2x pull-left"></i> Utilidad
+        </a>
+    </div>
+</div>
+{%endblock%}

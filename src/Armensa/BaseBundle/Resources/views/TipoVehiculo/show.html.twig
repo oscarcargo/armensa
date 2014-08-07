@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>TipoVehiculo</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Tipo</th>
+                <td>{{ entity.tipo }}</td>
+            </tr>
+            <tr>
+                <th>Tarifa</th>
+                <td>{{ entity.tarifa }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <div class="form-actions">
+        <a href="{{ path('tipovehiculo') }}" class="btn btn-mini">
+            Cancelar        </a>
+        <a href="{{ path('tipovehiculo_edit', { 'id': entity.id }) }}" class="btn btn-primary btn-mini">
+            Editar
+        </a>
+{{ form(delete_form) }}
+{% endblock %}
