@@ -1,19 +1,16 @@
 {% extends '::base.html.twig' %}
-
 {% block body -%}
     <div class="page-header">
-    	<h1>TipoVehiculo</h1>     <a href="{{ path('tipovehiculo_new') }}" class="btn btn-primary btn-mini"> <i class="icon-plus icon-white"></i>
+    	<h1>Tipos de Vehiculo</h1>
+               <a href="javascript:void(0);" class="btn btn-primary btn-mini" id="nuevo-tipo"> <i class="icon-plus icon-white"></i>
                 Crear Nuevo
             </a>
         </div>
     <table class="data-tbl-simple table table-bordered table-condensed table-striped table-hover">
         <thead>
             <tr>
-
             	<th>Id</th>
-
             	<th>Tipo</th>
-
             	<th>Tarifa</th>
                 <th>Acciones</th>
             </tr>
@@ -29,9 +26,35 @@
         {% endfor %}
         </tbody>
     </table>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+        <h4 class="modal-title" id="myModalLabel">Crear Nuevo</h4>
+      </div>
+      <div class="modal-body">
 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Crear</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
 {% block javascripts -%}
-
+<script>
+$(document).ready(function(){
+    $("#nuevo-tipo").click(function(){
+        $("#myModal").find('.modal-body').empty().load("{{path('tipovehiculo_new')}}",{},function(){
+            $("#myModal").find('.modal-body').find('form').addClass('form-inline');
+        });
+        $("#myModal").modal('show');
+    });
+});
+</script>
 {% endblock %}
