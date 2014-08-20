@@ -1,73 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="shortcut icon" href="">
-        <title>{% block title %}TRSOFT{% endblock %}</title>
-
-        <!-- Bootstrap core CSS -->
-        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="{{asset('font-awesome/css/font-awesome.min.css')}}">
-        <!-- Custom styles for this template -->
-        <style>body{padding-top:50px;}.starter-template{padding:40px 15px;text-align:center;}</style>
-
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-    {%block nav%}
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Trans Armensa</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown active">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuración <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="{{path('tipovehiculo')}}">Tipo Vehiculo</a></li>
-                <li><a href="{{path('vehiculo')}}">Vehiculos</a></li>
-                <li><a href="#">Conducores</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Otros</li>
-                <li><a href="#">Tipo de Proceso</a></li>
-                <li><a href="#">Cliente</a></li>
-              </ul>
-            </li>
-          </ul>
-          <!--
-            <ul class="nav navbar-nav navbar-right">
-
-          </ul> -->
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-    {%endblock%}
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="">
+<title>{% block title %}TRSOFT{% endblock %}</title>
+<link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
+<link rel="stylesheet" href="{{asset('font-awesome/css/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{asset('css/theme.css')}}">
+<link rel="stylesheet" href="{{asset('css/main.css')}}">
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+{% block stylesheets %}{% endblock %}
+</head>
+<body>
+{%block nav%}
+<div class="navbar navbar-inverse navbar-fixed-top sticky" role="navigation">
     <div class="container">
-      <!-- Main component for a primary marketing message or call to action -->
-        {%block body%}{%endblock%}
-    </div> <!-- /container -->
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <!-- compiled and minified Bootstrap JavaScript -->
-        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        {% block javascripts %}{% endblock %}
-    </body>
+        <div class="navbar-header">
+            <a href="{{path('vehiculo')}}" class="navbar-brand"><strong>ARMENSA</strong></a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">CONFIGURACIÓN  <b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{path('tipovehiculo')}}">Tipo Vehiculo</a></li>
+                        <li><a href="{{path('vehiculo')}}">Vehiculos</a></li>
+                        <li><a href="#">Conductores</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Otros</li>
+                        <li><a href="#">Tipo de Proceso</a></li>
+                        <li><a href="#">Cliente</a></li>
+                    </ul>
+                </li>
+                <li><a href="">OPERACIONES</a></li>
+                <li><a href="">INFORMES</a></li>
+                <li class=""><a href="">Sign out</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{%endblock%}
+<div class="container">
+    {%block body%}{%endblock%}
+</div>
+<!-- starts footer -->
+<footer id="footer">
+    <div class="container">
+        <div class="row credits">
+            <div class="col-md-12">
+                <div class="row social">
+                    <div class="col-md-12">
+                        <a href="#" class="facebook">
+                            <span class="socialicons ico1"></span>
+                            <span class="socialicons_h ico1h"></span>
+                        </a>
+                        <a href="#" class="twitter">
+                            <span class="socialicons ico2"></span>
+                            <span class="socialicons_h ico2h"></span>
+                        </a>
+                        <a href="#" class="gplus">
+                            <span class="socialicons ico3"></span>
+                            <span class="socialicons_h ico3h"></span>
+                        </a>
+                        <a href="#" class="flickr">
+                            <span class="socialicons ico4"></span>
+                            <span class="socialicons_h ico4h"></span>
+                        </a>
+                        <a href="#" class="pinterest">
+                            <span class="socialicons ico5"></span>
+                            <span class="socialicons_h ico5h"></span>
+                        </a>
+                        <a href="#" class="dribble">
+                            <span class="socialicons ico6"></span>
+                            <span class="socialicons_h ico6h"></span>
+                        </a>
+                        <a href="#" class="behance">
+                            <span class="socialicons ico7"></span>
+                            <span class="socialicons_h ico7h"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="row copyright">
+                    <div class="col-md-12">
+                        © 2014 TransArmensa. All rights reserved OARR.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="{{asset('js/theme.js') }}"></script>
+<script src="{{asset('js/init.js') }}"></script>
+<script src="{{asset('js/skel.min.js') }}"></script>
+<script src="{{asset('js/jquery.min.js') }}"></script>
+<script src="{{asset('js/jquery.scrolly.min.js') }}"></script>
+{% block javascripts %}{% endblock %}
+</body>
 </html>
