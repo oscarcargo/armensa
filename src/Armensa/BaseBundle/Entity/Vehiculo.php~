@@ -125,27 +125,4 @@ class Vehiculo
     {
         return $this->placa;
     }
-
-    /**
-     * Set tipoVehiculo
-     *
-     * @param \Armensa\BaseBundle\Entity\TipoVehiculo $tipoVehiculo
-     * @return Vehiculo
-     */
-    public function setTipoVehiculo(\Armensa\BaseBundle\Entity\TipoVehiculo $tipoVehiculo = null)
-    {
-        $this->tipoVehiculo = $tipoVehiculo;
-
-        return $this;
-    }
-
-    /**
-     * Get tipoVehiculo
-     *
-     * @return \Armensa\BaseBundle\Entity\TipoVehiculo
-     */
-    public function getTipoVehiculo()
-    {
-        return $this->tipoVehiculo;
-    }
 }

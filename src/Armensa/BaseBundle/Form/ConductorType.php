@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class VehiculoType extends AbstractType
+class ConductorType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,20 +15,21 @@ class VehiculoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('marca')
-            ->add('modelo')
-            ->add('placa')
-            ->add('tipoVehiculo')
+            ->add('nombre')
+            ->add('identificacion')
+            ->add('telefono')
+            ->add('direccion')
+            ->add('foto')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Armensa\BaseBundle\Entity\Vehiculo'
+            'data_class' => 'Armensa\BaseBundle\Entity\Conductor'
         ));
     }
 
@@ -37,6 +38,6 @@ class VehiculoType extends AbstractType
      */
     public function getName()
     {
-        return 'armensa_basebundle_vehiculo';
+        return 'armensa_basebundle_conductor';
     }
 }
