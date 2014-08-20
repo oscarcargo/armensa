@@ -29,7 +29,11 @@
 body {
   padding-top: 80px;
   color: #34495e;
+<<<<<<< HEAD
   background: rgba(255, 255, 255, 0.6);
+=======
+  background: #f5f5f5;
+>>>>>>> origin/master
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
@@ -806,7 +810,11 @@ ul.tag-cloud li {
   line-height: 68px;
   color: #000;
   margin-right: 10px;
+<<<<<<< HEAD
   background-color: rgba(213, 168, 0, 0.9);
+=======
+  background-color: rgba(40, 154, 210, 0.5);
+>>>>>>> origin/master
   text-align: center;
   display: block;
   border-radius: 50%;

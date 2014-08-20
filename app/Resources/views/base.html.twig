@@ -10,6 +10,7 @@
 <title>{% block title %}TRSOFT{% endblock %}</title>
 <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
 <link rel="stylesheet" href="{{asset('font-awesome/css/font-awesome.min.css')}}">
+<<<<<<< HEAD
 <link rel="stylesheet" href="{{asset('css/theme.css')}}">
 <link rel="stylesheet" href="{{asset('css/main.css')}}">
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -17,10 +18,21 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+=======
+<link rel="stylesheet" href="{{asset('css/animate.css')}}">
+<link rel="stylesheet" href="{{asset('css/main.css')}}">
+<link rel="stylesheet" href="{{asset('css/docs.css')}}">
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+>>>>>>> origin/master
 {% block stylesheets %}{% endblock %}
 </head>
 <body>
 {%block nav%}
+<<<<<<< HEAD
 <div class="navbar navbar-inverse navbar-fixed-top sticky" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -102,10 +114,77 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="{{asset('js/theme.js') }}"></script>
+=======
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="{{path('vehiculo')}}" class="navbar-brand">Armensa</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuración <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="{{path('tipovehiculo')}}">Tipo Vehiculo</a></li>
+            <li><a href="{{path('vehiculo')}}">Vehiculos</a></li>
+            <li><a href="#">Conductores</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Otros</li>
+            <li><a href="#">Tipo de Proceso</a></li>
+            <li><a href="#">Cliente</a></li>
+          </ul>
+        </li>
+              <li class="menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Operaciones </a>
+            </li>
+            <li class="menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informes </a>
+            </li>
+            </ul>
+
+
+        </nav>
+    </div>
+</header>
+
+
+{%endblock%}
+<div class="container">
+    <!-- Main component for a primary marketing message or call to action -->
+    {%block body%}{%endblock%}
+</div>
+<!-- /container -->
+
+<!-- Footer -->
+			<section id="footer">
+				<ul class="social-media">
+					<li><a href="#" class="fa fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="fa fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="fa fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="fa fa-dribbble"><span class="label">Dribbble</span></a></li>
+					<li><a href="#" class="fa fa-github"><span class="label">GitHub</span></a></li>
+				</ul>
+				<div class="copyright">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="#">OARR</a></li>
+					</ul>
+				</div>
+			</section>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- compiled and minified Bootstrap JavaScript -->
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+>>>>>>> origin/master
 <script src="{{asset('js/init.js') }}"></script>
 <script src="{{asset('js/skel.min.js') }}"></script>
 <script src="{{asset('js/jquery.min.js') }}"></script>
 <script src="{{asset('js/jquery.scrolly.min.js') }}"></script>
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> origin/master
 {% block javascripts %}{% endblock %}
 </body>
 </html>
