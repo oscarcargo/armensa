@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new Armensa\BaseBundle\ArmensaBaseBundle(),
             new Armensa\UserBundle\ArmensaUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Armensa\ViajesBundle\ArmensaViajesBundle(),
+            new Armensa\InformesBundle\ArmensaInformesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

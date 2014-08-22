@@ -1,3 +1,13 @@
+armensa_informes:
+    resource: "@ArmensaInformesBundle/Controller/"
+    type:     annotation
+    prefix:   /informes
+
+armensa_viajes:
+    resource: "@ArmensaViajesBundle/Controller/"
+    type:     annotation
+    prefix:   /viajes
+
 _welcome:
     path:      /
     defaults:  { _controller: ArmensaBaseBundle:Default:index }
