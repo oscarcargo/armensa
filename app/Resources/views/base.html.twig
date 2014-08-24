@@ -36,11 +36,16 @@
                         <li><a href="{{path('conductor')}}">Conductores</a></li>
                         <li class="divider"></li>
                         <li class="dropdown-header">Otros</li>
-                        <li><a href="#">Tipo de Proceso</a></li>
-                        <li><a href="#">Cliente</a></li>
+                        <li><a href="{{path('tipoproceso')}}">Tipo de Proceso</a></li>
+                        <li><a href="{{path('cliente')}}">Cliente</a></li>
                     </ul>
                 </li>
-                <li><a href="{{path('armensa_viajes_default_index')}}">OPERACIONES</a></li>
+                <li class="dropdown">
+                    <a href="#" id="drop-viajes" data-toggle="dropdown" role="button" path="{{path('armensa_viajes_default_index')}}">OPERACIONES <b class="caret"></b></a>
+                        <ul class="dropdown-menu" aria-labelledby="drop-viajes" role="menu">
+                            <li role="presentation"><a href="{{path('viaje')}}">Viajes</a></li>
+                        </ul>
+                </li>
                 <li><a href="{{path('armensa_informes_default_index')}}">INFORMES</a></li>
                 <li class=""><a href="{{path('fos_user_security_logout')}}">Sign out</a></li>
             </ul>

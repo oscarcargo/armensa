@@ -1,0 +1,57 @@
+{% extends '::base.html.twig' %}
+{% block body -%}
+    <div class="page-header">
+    	<h1>Viaje</h1>     <a href="{{ path('viaje_new') }}" class="btn btn-primary btn-mini"> <i class="icon-plus icon-white"></i>
+                Crear Nuevo
+            </a>
+        </div>
+    <table class="data-tbl-simple table table-bordered table-condensed table-striped table-hover">
+        <thead>
+            <tr>
+
+            	<th>Id</th>
+
+            	<th>Fecha</th>
+
+            	<th>Fechacreacion</th>
+
+            	<th>Origen</th>
+
+            	<th>Destino</th>
+
+            	<th>Valorcompra</th>
+
+            	<th>Valorventa</th>
+
+            	<th>Peso</th>
+
+            	<th>Cantidad</th>
+
+            	<th>Observciones</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('viaje_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.fecha %}{{ entity.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.fechaCreacion %}{{ entity.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.origen }}</td>
+                <td>{{ entity.destino }}</td>
+                <td>{{ entity.valorCompra }}</td>
+                <td>{{ entity.valorVenta }}</td>
+                <td>{{ entity.peso }}</td>
+                <td>{{ entity.cantidad }}</td>
+                <td>{{ entity.observciones }}</td>
+                <td style="text-align:center"><a href="{{ path('viaje_show', { 'id': entity.id }) }}" > <i class="fa fa-eye"></i> </a><a href="{{ path('viaje_edit', { 'id': entity.id }) }}" ><i class="fa fa-pencil"></i> </a>                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
+{% block javascripts -%}
+
+{% endblock %}

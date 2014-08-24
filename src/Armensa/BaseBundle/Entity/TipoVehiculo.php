@@ -91,4 +91,11 @@ class TipoVehiculo
     {
         return $this->tarifa;
     }
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->tipo;
+    }
 }

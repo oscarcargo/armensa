@@ -181,4 +181,11 @@ class Conductor
     {
         return $this->foto;
     }
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->nombre;
+    }
 }

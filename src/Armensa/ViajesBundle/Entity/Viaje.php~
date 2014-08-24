@@ -1,0 +1,153 @@
+<?php
+
+namespace Armensa\ViajesBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Viaje
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class Viaje
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha", type="datetime")
+     */
+    private $fecha;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaCreacion", type="datetime")
+     */
+    private $fechaCreacion;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Armensa\UserBundle\Entity\User",cascade={"persist"})
+     * @ORM\JoinColumn(name="usuario", referencedColumnName="id")
+     */
+    private $usuario;
+    
+    
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Armensa\BaseBundle\Entity\Conductor",cascade={"persist"})
+     * @ORM\JoinColumn(name="conductor", referencedColumnName="id")
+     */
+    private $conductor;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Armensa\BaseBundle\Entity\Vehiculo",cascade={"persist"})
+     * @ORM\JoinColumn(name="vehiculo", referencedColumnName="id")
+     */
+    private $vehiculo;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Armensa\BaseBundle\Entity\Cliente",cascade={"persist"})
+     * @ORM\JoinColumn(name="cliente", referencedColumnName="id")
+     */
+    private $cliente;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="origen", type="string", length=255)
+     */
+    private $origen;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="destino", type="string", length=255)
+     */
+    private $destino;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Armensa\BaseBundle\Entity\TipoProceso",cascade={"persist"})
+     * @ORM\JoinColumn(name="tipoProceso", referencedColumnName="id")
+     */
+    private $tipoProceso;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="valorCompra", type="float")
+     */
+    private $valorCompra;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="valorVenta", type="float")
+     */
+    private $valorVenta;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="peso", type="float")
+     */
+    private $peso;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cantidad", type="integer")
+     */
+    private $cantidad;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observciones", type="text")
+     */
+    private $observciones;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set fecha
+     *
+     * @param \DateTime $fecha
+     * @return Viaje
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+
+        return $this;
+    }
+
+    /**
+     * Get fecha
+     *
+     * @return \DateTime 
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+}
