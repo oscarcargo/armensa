@@ -148,4 +148,11 @@ class Vehiculo
     {
         return $this->tipoVehiculo;
     }
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->placa;
+    }
 }

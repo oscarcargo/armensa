@@ -9,3 +9,10 @@
         <a href="{{ path('viaje') }}" class="btn btn-mini">
             Cancelar        </a>
 {% endblock %}
+{%block javascripts%}
+<script>
+    $(document).ready(function(){
+        $(".datePicker").datepicker({ language:'es'});
+    });
+</script>
+{%endblock%}
