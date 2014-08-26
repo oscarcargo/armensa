@@ -1,1 +1,56 @@
-Hello {{ name }}!
+{%extends "::base.html.twig"%}
+{%block body-%}
+<hr>
+<section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="center gap">
+                        <h2>Informes</h2>
+                        <p>Informes del sistema.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="media">
+                       <div class="pull-left">
+                            <i class="fa fa-sliders icon-md"></i>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Viajes Por Veh&iacute;culo</h3>
+                            <p>Cantidad de viajes realizados.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="media">
+                        <div class="pull-left">
+                            <i class="fa fa-cubes icon-md"></i>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Viajes Por Cliente</h3>
+                            <p>Cantidad de viajes por cliente.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="media">
+                        <div class="pull-left">
+                            <i class="fa fa-money icon-md"></i>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Utilidades</h3>
+                            <p>Resumen de utilidad por viaje</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <hr>
+
+        </div>
+    </section>
+{%endblock%}

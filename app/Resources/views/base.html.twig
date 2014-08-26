@@ -25,28 +25,12 @@
 <div class="navbar navbar-inverse navbar-fixed-top sticky" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <a href="{{path('vehiculo')}}" class="navbar-brand"><strong>ARMENSA</strong></a>
+            <a href="{{path('armensa_viajes_default_index')}}" class="navbar-brand"><strong>ARMENSA</strong></a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">CONFIGURACIÓN  <b class="caret"></b></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{path('tipovehiculo')}}">Tipo Vehiculo</a></li>
-                        <li><a href="{{path('vehiculo')}}">Vehiculos</a></li>
-                        <li><a href="{{path('conductor')}}">Conductores</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Otros</li>
-                        <li><a href="{{path('tipoproceso')}}">Tipo de Proceso</a></li>
-                        <li><a href="{{path('cliente')}}">Cliente</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" id="drop-viajes" data-toggle="dropdown" role="button" path="{{path('armensa_viajes_default_index')}}">OPERACIONES <b class="caret"></b></a>
-                        <ul class="dropdown-menu" aria-labelledby="drop-viajes" role="menu">
-                            <li role="presentation"><a href="{{path('viaje')}}">Viajes</a></li>
-                        </ul>
-                </li>
+                <li><a href="{{path('_welcome')}}">DATOS</a></li>
+                <li><a href="{{path('armensa_viajes_default_index')}}">OPERACIONES</a></li>
                 <li><a href="{{path('armensa_informes_default_index')}}">INFORMES</a></li>
                 <li class=""><a href="{{path('fos_user_security_logout')}}">Sign out</a></li>
             </ul>
@@ -75,22 +59,6 @@
                         <a href="#" class="gplus">
                             <span class="socialicons ico3"></span>
                             <span class="socialicons_h ico3h"></span>
-                        </a>
-                        <a href="#" class="flickr">
-                            <span class="socialicons ico4"></span>
-                            <span class="socialicons_h ico4h"></span>
-                        </a>
-                        <a href="#" class="pinterest">
-                            <span class="socialicons ico5"></span>
-                            <span class="socialicons_h ico5h"></span>
-                        </a>
-                        <a href="#" class="dribble">
-                            <span class="socialicons ico6"></span>
-                            <span class="socialicons_h ico6h"></span>
-                        </a>
-                        <a href="#" class="behance">
-                            <span class="socialicons ico7"></span>
-                            <span class="socialicons_h ico7h"></span>
                         </a>
                     </div>
                 </div>

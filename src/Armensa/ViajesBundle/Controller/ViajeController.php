@@ -49,6 +49,10 @@ class ViajeController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+        	$user = $this->get('security.context')->getToken()->getUser();
+        	
+        	$entity->setUsuario($user);
+        	$entity->setFechaCreacion(new \DateTime());
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();

@@ -1,1 +1,37 @@
-Hello {{ name }}!
+{%extends "::base.html.twig"%}
+{%block body-%}
+<hr>
+<section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="center gap">
+                        <h2>Operaciones</h2>
+                        <p>Listado de Operaciones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="media">
+                       <div class="pull-left">
+                            <a href="{{path('viaje')}}">
+                            <i class="fa fa-road icon-md" ></i></a>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Histórico de Viajes</h3>
+                            <p>Histórico de Procesos.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <hr>
+
+        </div>
+    </section>
+{%endblock%}
