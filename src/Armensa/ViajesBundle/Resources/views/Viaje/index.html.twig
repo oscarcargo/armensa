@@ -11,6 +11,8 @@
 {% block javascripts -%}
 <script>
     $(document).ready(function(){
+
+
         var datePick={ dataInit: function(el) {
                                 $(el).datepicker({
                                     changeYear: true,
@@ -41,9 +43,9 @@
                       },
                 colModel: [
                     { name: 'id', index: 'id',jsonmap:"id",key: true, width: 35, sorttype: "int", search:true,hidden:true },
-                    { name: 'fecha', index: 'fecha.date', width: 60,searchoptions:datePick},
+                    { name: 'fecha', index: 'fecha', width: 60,searchoptions:datePick,formatter:dateFmt},
                     { name: 'origen', index: 'origen', width: 100 },
-                    { name: 'destino', index: 'destin', width: 100 },
+                    { name: 'destino', index: 'destino', width: 100 },
                     { name: 'valorCompra', index: 'compra', width: 100 },
                     { name: 'valorVenta', index: 'venta', width: 100 },
 
@@ -68,6 +70,13 @@
                 height: '100%',
                 width:'90%',
                 });
+                function dateFmt(cellvalue, options, rowObject){
+                    str = "";
+
+                    if(null!==cellvalue){
+                        return cellvalue.date;
+                    }
+                }
                 function botonera(cellvalue, options, rowObject){
                     var html="<a href='javascript:void(0);' alt='Editar' rate_id="+rowObject.id+"><i class='fa fa-pencil'><\/i><\/a>";
                     return html;
