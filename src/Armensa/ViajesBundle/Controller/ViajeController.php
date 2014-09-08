@@ -148,7 +148,6 @@ class ViajeController extends Controller
 
         foreach($pagination as $row){
 	        $line=$row;
-	        $line['mes'] = $line['fechaCreacion']->format('m');
 	      	$r['rows'][]=$line;
         }
         $response->setContent(json_encode($r));
