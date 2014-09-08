@@ -13,19 +13,7 @@
     $(document).ready(function(){
 
 
-        var datePick={ dataInit: function(el) {
-                                $(el).datepicker({
-                                    changeYear: true,
-                                    changeMonth: true,
-                                    showButtonPanel: true,
-                                    dateFormat: 'yy-mm-dd',
-                                    onSelect:function(){
-                                    	$("#list")[0].triggerToolbar();
-										$("#list").trigger("reloadGrid", [{ page: 1}]);
-                                    }
-                                });
-                            }
-                           };
+        var datePick={dataInit:function(el){$(el).daterangepicker({format:'YYYY-MM-DD',separator:'|',constrainInput: false, locale: { applyLabel: 'Aplicar',showWeekNumbers:true,parentEl:"#dosDiv",cancelLabel: 'Resetear',fromLabel: 'Desde',toLabel: 'Hasta',customRangeLabel: 'Personalizado', daysOfWeek: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie','Sab'],monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],firstDay: 1}});$(el).on('apply.daterangepicker', function(ev, picker) {$("#list")[0].triggerToolbar();$("#list").trigger("reloadGrid", [{ page: 1}]);});}};
 
 
         $('#list').jqGrid({
