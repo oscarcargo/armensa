@@ -85,7 +85,18 @@ class ViajeController extends Controller
                 ->orderBy('v.id','DESC');
         $entities=$qb->getQuery()->getResult();
 		$fields=array(
-		      'id' => 'v.id'
+		      'id' => 'v.id',
+            'fecha'=>'v.fecha',
+            'origen'=>'v.origen',
+            'destino'=>'v.destino',
+            'valorCompra'=>'v.valorCompra',
+            'valorVenta'=>'v.valorVenta',
+            'peso' => 'v.peso',
+            'cantidad'=>'v.cantidad',
+            'conductor' =>'co.nombre',
+            'cliente' => 'cl.cliente',
+            'vehiculo' =>'ve.placa',
+            'tipoPr' => 'tp.tipo'
         );
 
 		///Aplicamos filtros
