@@ -1,57 +1,76 @@
 {% extends '::base.html.twig' %}
 {% block body -%}
-    <div class="page-header">
+<div class="page-header">
     	<h1>Viaje</h1>     <a href="{{ path('viaje_new') }}" class="btn btn-primary btn-mini"> <i class="icon-plus icon-white"></i>
                 Crear Nuevo
             </a>
-        </div>
-    <table class="data-tbl-simple table table-bordered table-condensed table-striped table-hover">
-        <thead>
-            <tr>
-
-            	<th>Id</th>
-
-            	<th>Fecha</th>
-
-            	<th>Fechacreacion</th>
-
-            	<th>Origen</th>
-
-            	<th>Destino</th>
-
-            	<th>Valorcompra</th>
-
-            	<th>Valorventa</th>
-
-            	<th>Peso</th>
-
-            	<th>Cantidad</th>
-
-            	<th>Observciones</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('viaje_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{% if entity.fecha %}{{ entity.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.fechaCreacion %}{{ entity.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.origen }}</td>
-                <td>{{ entity.destino }}</td>
-                <td>{{ entity.valorCompra }}</td>
-                <td>{{ entity.valorVenta }}</td>
-                <td>{{ entity.peso }}</td>
-                <td>{{ entity.cantidad }}</td>
-                <td>{{ entity.observciones }}</td>
-                <td style="text-align:center"><a href="{{ path('viaje_show', { 'id': entity.id }) }}" > <i class="fa fa-eye"></i> </a><a href="{{ path('viaje_edit', { 'id': entity.id }) }}" ><i class="fa fa-pencil"></i> </a>                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-
+</div>
+<table id="list"></table>
+<div id="pager"></div>
 {% endblock %}
 {% block javascripts -%}
+<script>
+    $(document).ready(function(){
+        var datePick={ dataInit: function(el) {
+                                $(el).datepicker({
+                                    changeYear: true,
+                                    changeMonth: true,
+                                    showButtonPanel: true,
+                                    dateFormat: 'yy-mm-dd',
+                                    onSelect:function(){
+                                    	$("#list")[0].triggerToolbar();
+										$("#list").trigger("reloadGrid", [{ page: 1}]);
+                                    }
+                                });
+                            }
+                           };
 
+        $('#list').jqGrid({
+                url:'{{path('viaje_list')}}',
+                datatype: "json",
+                colNames: ['id' ,'Fecha','Origen','Destino','Compra','Venta' ,'Peso' ,'Cant.','Conductor','Cliente','Vehículo','Proceso'],
+                jsonReader : {
+                      root: "rows",
+                      page: "page",
+                      total: "total",
+                      records: "records",
+                      repeatitems: false,
+                      //cell: "row",
+                      id: "id"
+                      },
+                colModel: [
+                    { name: 'id', index: 'id',jsonmap:"id",key: true, width: 35, sorttype: "int", search:true,hidden:true },
+                    { name: 'fecha', index: 'fecha', width: 60,searchoptions:datePick},
+                    { name: 'origen', index: 'origen', width: 100 },
+                    { name: 'destino', index: 'destin', width: 100 },
+                    { name: 'valorCompra', index: 'compra', width: 100 },
+                    { name: 'valorVenta', index: 'venta', width: 100 },
+
+                    { name: 'peso', index: 'peso', width: 50, align:'right',},
+                    { name: 'cantidad', index: 'cantidad', width: 50, align:'right' },
+                    { name: 'conductor', index: 'conductor', width: 50, align:'left'},
+                    { name: 'cliente', index: 'cliente', width: 100, align:'left'},
+                    { name: 'vehiculo', index: 'vehiculo', width: 100, align:'left'},
+                    { name: 'tipoProceso', index: 'tipoProceso', width: 100, align:'left'}
+
+
+                    ],
+                pager: '#pager',
+                rowNum: 20,
+
+                rowList: [20,30, 50, 70, 100],
+                sortname: 'id',
+                sortorder: 'desc',
+                viewrecords: true,
+                gridview:true,
+                autowidth: true,
+                height: '100%',
+                width:'90%',
+                });
+                function botonera(cellvalue, options, rowObject){
+                    var html="<a href='javascript:void(0);' alt='Editar' rate_id="+rowObject.id+"><i class='fa fa-pencil'><\/i><\/a>";
+                    return html;
+                }
+    });
+</script>
 {% endblock %}

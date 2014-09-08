@@ -3,6 +3,7 @@
 namespace Armensa\ViajesBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -65,7 +66,94 @@ class ViajeController extends Controller
             'form'   => $form->createView(),
         );
     }
+    /**
+     * Lists all Viaje entities.
+     *
+     * @Route("/list", name="viaje_list")
+     * @Method("GET")
+     */
+    public function listAction()
+    {
+        $em = $this->getDoctrine()->getManager();
 
+        $qb = $em->getRepository('ArmensaViajesBundle:Viaje')->createQueryBuilder('v')
+        	   ->add('select',"v.id, v.fecha, v.origen, v.destino, v.valorCompra ,v.valorVenta, v.peso, v.cantidad, co.nombre conductor, cl.nombre cliente, ve.placa vehiculo,tp.tipo tipoPr")
+        	   ->leftJoin('v.conductor','co')
+                ->leftJoin('v.cliente','cl')
+                ->leftJoin('v.vehiculo','ve')
+                ->leftJoin('v.tipoProceso','tp')
+                ->orderBy('v.id','DESC');
+        $entities=$qb->getQuery()->getResult();
+		$fields=array(
+		      'id' => 'v.id'
+        );
+
+		///Aplicamos filtros
+	    $request=$this->get('request');
+	    if ( $request->get('_search') && $request->get('_search') == "true" && $request->get('filters') )
+            {
+                    $f=$request->get('filters');
+                    $f=json_decode(str_replace("\\","",$f),true);
+                    $rules=$f['rules'];
+                    foreach($rules as $rule){
+                            $searchField=$fields[$rule['field']];
+                            $searchString=$rule['data'];
+                            if($rule['field']=='fechaCreacion'){
+                            $daterange=explode("|", $searchString);
+                            if(count($daterange)==1){
+                            	$dateValue="'".trim(str_replace(" ","",$daterange[0]))."'";
+	                            $qb->andWhere($searchField." LIKE '".$dateValue."%'");
+                            }else{
+                            	$minValue="'".trim(str_replace(" ","",$daterange[0]))." 00:00:00'";
+                            	$maxValue="'".trim(str_replace(" ","",$daterange[1]))." 23:59:59'";
+	                            $qb->andWhere($qb->expr()->between($searchField,$minValue , $maxValue));
+                            }
+
+                            }else{
+                                if("null"!=$searchString){
+                                	$qb->andWhere($qb->expr()->like($searchField, $qb->expr()->literal("%".$searchString."%")));
+                                }
+                            }
+                    }
+
+            }
+
+
+	    //Ordenamiento de columnas
+	    //sidx	id
+		//sord	desc
+		$sidx=$this->get('request')->query->get('sidx', 'id');
+		$sord=$this->get('request')->query->get('sord', 'DESC');
+		$qb->orderBy($fields[$sidx],$sord);
+		//die($qb->getQuery()->getSQL());
+
+	    $query=$qb->getQuery()->getResult();
+		$paginator = $this->get('knp_paginator');
+		$pagination = $paginator->paginate(
+		    $query,
+		    $this->get('request')->query->get('page', 1)/*page number*/,
+		   $this->get('request')->query->get('rows', 10)/*limit per page*/
+		);
+        /*return array(
+            'entities' => $entities,
+            'pagination'=>$pagination
+        );*/
+        $response= new Response();
+        $pdata=$pagination->getPaginationData();
+        $r=array();
+        $r['records']=count($query);
+        $r['page']=$this->get('request')->query->get('page', 1);
+        $r['rows']=array();
+        $r['total'] = $pdata['pageCount'];
+
+        foreach($pagination as $row){
+	        $line=$row;
+	        $line['mes'] = $line['fechaCreacion']->format('m');
+	      	$r['rows'][]=$line;
+        }
+        $response->setContent(json_encode($r));
+        return $response;
+    }
     /**
      * Creates a form to create a Viaje entity.
      *
