@@ -5,7 +5,7 @@
                 Crear Nuevo
             </a>
 </div>
-<table id="list"></table>
+<table id="list" class="table table-bordered"></table>
 <div id="pager"></div>
 {% endblock %}
 {% block javascripts -%}
@@ -71,6 +71,10 @@
                     var html="<a href='javascript:void(0);' alt='Editar' rate_id="+rowObject.id+"><i class='fa fa-pencil'><\/i><\/a>";
                     return html;
                 }
+            $(document).ready(function(){
+                $("#list").jqGrid('filterToolbar',{stringResult: true,searchOnEnter : false, defaultSearch:'cn'});
+            });
+
     });
 </script>
 {% endblock %}
