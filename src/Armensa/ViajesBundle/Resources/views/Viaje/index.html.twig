@@ -25,10 +25,11 @@
                             }
                            };
 
+
         $('#list').jqGrid({
                 url:'{{path('viaje_list')}}',
                 datatype: "json",
-                colNames: ['id' ,'Fecha','Origen','Destino','Compra','Venta' ,'Peso' ,'Cant.','Conductor','Cliente','Vehículo','Proceso'],
+                colNames: ['id' ,'Fecha','Origen','Destino','Compra','Venta' ,'Peso' ,'Cant.','Conductor','Cliente','Vehículo','Proceso','Acciones'],
                 jsonReader : {
                       root: "rows",
                       page: "page",
@@ -40,7 +41,7 @@
                       },
                 colModel: [
                     { name: 'id', index: 'id',jsonmap:"id",key: true, width: 35, sorttype: "int", search:true,hidden:true },
-                    { name: 'fecha', index: 'fecha', width: 60,searchoptions:datePick},
+                    { name: 'fecha', index: 'fecha.date', width: 60,searchoptions:datePick},
                     { name: 'origen', index: 'origen', width: 100 },
                     { name: 'destino', index: 'destin', width: 100 },
                     { name: 'valorCompra', index: 'compra', width: 100 },
@@ -51,8 +52,8 @@
                     { name: 'conductor', index: 'conductor', width: 50, align:'left'},
                     { name: 'cliente', index: 'cliente', width: 100, align:'left'},
                     { name: 'vehiculo', index: 'vehiculo', width: 100, align:'left'},
-                    { name: 'tipoProceso', index: 'tipoProceso', width: 100, align:'left'}
-
+                    { name: 'tipoProceso', index: 'tipoProceso', width: 100, align:'left'},
+                    { name: 'acciones', index: 'id', width: 100, align:'center',formatter:botonera}
 
                     ],
                 pager: '#pager',
