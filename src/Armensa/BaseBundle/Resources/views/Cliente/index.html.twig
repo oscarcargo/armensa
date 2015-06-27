@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 {% block body -%}
     <div class="page-header">
-    	<h1>Cliente</h1>     <a href="{{ path('cliente_new') }}" class="btn btn-primary btn-mini"> <i class="icon-plus icon-white"></i>
+    	<h1>Listado de Clientes</h1>     <a href="{{ path('cliente_new') }}" class="btn btn-primary btn-mini"> <i class="icon-plus icon-white"></i>
                 Crear Nuevo
             </a>
         </div>
@@ -9,11 +9,9 @@
         <thead>
             <tr>
 
-            	<th>Id</th>
-
-            	<th>Nit</th>
-
             	<th>Nombre</th>
+                
+                <th>Nit</th>
 
             	<th>Direccion</th>
 
@@ -26,9 +24,8 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('cliente_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('cliente_show', { 'id': entity.id }) }}">{{ entity.nombre }}</a></td>
                 <td>{{ entity.nit }}</td>
-                <td>{{ entity.nombre }}</td>
                 <td>{{ entity.direccion }}</td>
                 <td>{{ entity.telefono }}</td>
                 <td>{{ entity.email }}</td>

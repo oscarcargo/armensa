@@ -15,8 +15,8 @@ class VehiculoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('marca')
-            ->add('modelo')
+            ->add('marca', 'text', array('required'=>true, 'invalid_message' => 'Necesitamos la Marca'))
+            ->add('modelo', 'integer')
             ->add('placa')
             ->add('tipoVehiculo')
         ;

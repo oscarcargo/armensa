@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+{% block body -%}
+<div class="page-header">
+    	<h1>Viaje por Vehiculo</h1>  
+</div>
+    <table class="data-tbl-simple table table-bordered table-condensed table-striped table-hover">
+        <thead>
+            <tr>
+
+            	<th>Valor Compra</th>
+
+            	<th>Valor Venta</th>
+                
+                <th>Utilidad</th>
+            </tr>
+          
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('viaje_show', { 'id': entity.id }) }}">{{ entity.valorCompra }}</a></td>
+                <td>{{ entity.valorVenta}}</td>
+                <td> {%set utilidad= entity.valorVenta - entity.valorCompra%}
+            {{utilidad|number_format(2)}}</td>
+
+            </tr>
+             
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
+{% block javascripts -%}
+
+{% endblock %}

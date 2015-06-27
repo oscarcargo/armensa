@@ -50,14 +50,6 @@ class Conductor
     private $direccion;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="foto", type="string", length=255)
-     */
-    private $foto;
-
-
-    /**
      * Get id
      *
      * @return integer
@@ -159,28 +151,6 @@ class Conductor
         return $this->direccion;
     }
 
-    /**
-     * Set foto
-     *
-     * @param string $foto
-     * @return Conductor
-     */
-    public function setFoto($foto)
-    {
-        $this->foto = $foto;
-
-        return $this;
-    }
-
-    /**
-     * Get foto
-     *
-     * @return string
-     */
-    public function getFoto()
-    {
-        return $this->foto;
-    }
     /**
      * @return string
      */

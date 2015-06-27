@@ -36,6 +36,61 @@ class ViajeController extends Controller
             'entities' => $entities,
         );
     }
+    
+    /**
+     * Lists all vxv entities.
+     *
+     * @Route("/vxv", name="vxv")
+     * @Method("GET")
+     * @Template()
+     */
+    public function vxvAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('ArmensaViajesBundle:Viaje')->findAll();
+
+        return array(
+            'entities' => $entities,
+        );
+    }
+    
+    /**
+     * Lists all vxc entities.
+     *
+     * @Route("/vxc", name="vxc")
+     * @Method("GET")
+     * @Template()
+     */
+    public function vxcAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('ArmensaViajesBundle:Viaje')->findAll();
+
+        return array(
+            'entities' => $entities,
+        );
+    }
+    
+    /**
+     * Lists all utilidad entities.
+     *
+     * @Route("/utilidad", name="utilidad")
+     * @Method("GET")
+     * @Template()
+     */
+    public function utilidadAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('ArmensaViajesBundle:Viaje')->findAll();
+
+        return array(
+            'entities' => $entities,
+        );
+    }
+    
     /**
      * Creates a new Viaje entity.
      *
@@ -178,7 +233,7 @@ class ViajeController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Crear'));
 
         return $form;
     }
@@ -267,7 +322,7 @@ class ViajeController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Actualizar'));
 
         return $form;
     }
@@ -342,7 +397,7 @@ class ViajeController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('viaje_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'Borrar'))
             ->getForm()
         ;
     }

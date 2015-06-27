@@ -22,16 +22,16 @@ class Viaje
     private $id;
 
     /**
-     * @var \DateTime
+     * @var \Date
      *
-     * @ORM\Column(name="fecha", type="datetime")
+     * @ORM\Column(name="fecha", type="date")
      */
     private $fecha;
 
     /**
-     * @var \DateTime
+     * @var \Date
      *
-     * @ORM\Column(name="fechaCreacion", type="datetime")
+     * @ORM\Column(name="fechaCreacion", type="date")
      */
     private $fechaCreacion;
 
@@ -112,9 +112,9 @@ class Viaje
     /**
      * @var string
      *
-     * @ORM\Column(name="observciones", type="text")
+     * @ORM\Column(name="observaciones", type="text")
      */
-    private $observciones;
+    private $observaciones;
 
 
     /**
@@ -130,7 +130,7 @@ class Viaje
     /**
      * Set fecha
      *
-     * @param \DateTime $fecha
+     * @param \Date $fecha
      * @return Viaje
      */
     public function setFecha($fecha)
@@ -143,7 +143,7 @@ class Viaje
     /**
      * Get fecha
      *
-     * @return \DateTime
+     * @return \Date
      */
     public function getFecha()
     {
@@ -154,7 +154,7 @@ class Viaje
     /**
      * Set fechaCreacion
      *
-     * @param \DateTime $fechaCreacion
+     * @param \Date $fechaCreacion
      * @return Viaje
      */
     public function setFechaCreacion($fechaCreacion)
@@ -167,7 +167,7 @@ class Viaje
     /**
      * Get fechaCreacion
      *
-     * @return \DateTime
+     * @return \Date
      */
     public function getFechaCreacion()
     {
@@ -313,26 +313,26 @@ class Viaje
     }
 
     /**
-     * Set observciones
+     * Set observaciones
      *
-     * @param string $observciones
+     * @param string $observaciones
      * @return Viaje
      */
-    public function setObservciones($observciones)
+    public function setobservaciones($observaciones)
     {
-        $this->observciones = $observciones;
+        $this->observaciones = $observaciones;
 
         return $this;
     }
 
     /**
-     * Get observciones
+     * Get observaciones
      *
      * @return string
      */
-    public function getObservciones()
+    public function getobservaciones()
     {
-        return $this->observciones;
+        return $this->observaciones;
     }
 
     /**

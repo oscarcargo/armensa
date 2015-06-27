@@ -1,11 +1,18 @@
 {% extends '::base.html.twig' %}
+{% block body %}
 
-{% block body -%}
-    <h1>Crear TipoProceso</h1>
+<h1>Crear Tipo de Proceso</h1>
 
-    {{ form(form) }}
+<form action="{{ path('tipoproceso') }}" method="post">
+    <div class="form-actions">
+        <th>Tipo de Proceso:</th>
+        <br>{{form_widget(form.tipo)}}</br>
+    <a href="{{ path('tipoproceso') }}" class="btn btn-mini"> Cancelar        </a>
+{{ form_rest(form) }}
 
-        <div class="form-actions">
-        <a href="{{ path('tipoproceso') }}" class="btn btn-mini">
-            Cancelar        </a>
+   
+
+    </div>
+</form>
+
 {% endblock %}

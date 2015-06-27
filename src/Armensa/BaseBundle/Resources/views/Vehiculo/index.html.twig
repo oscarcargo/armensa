@@ -1,45 +1,37 @@
 {% extends '::base.html.twig' %}
-
 {% block body -%}
-    <h1>Vehiculo list</h1>
-
-    <table class="records_list">
+    <div class="page-header">
+    	<h1>Listado de Vehículos</h1>     <a href="{{ path('vehiculo_new') }}" class="btn btn-primary btn-mini"> <i class="icon-plus icon-white"></i>
+                Crear Nuevo
+            </a>
+        </div>
+    <table class="data-tbl-simple table table-bordered table-condensed table-striped table-hover">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Placa</th>
-                <th>Actions</th>
+
+            	<th>Marca</th>
+
+            	<th>Modelo</th>
+
+            	<th>Placa</th>
+                
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('vehiculo_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.marca }}</td>
+                <td><a href="{{ path('vehiculo_show', { 'id': entity.id }) }}">{{ entity.marca }}</a></td>
                 <td>{{ entity.modelo }}</td>
                 <td>{{ entity.placa }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('vehiculo_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('vehiculo_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
+                <td style="text-align:center"><a href="{{ path('vehiculo_show', { 'id': entity.id }) }}" > <i class="fa fa-eye"></i> </a><a href="{{ path('vehiculo_edit', { 'id': entity.id }) }}" ><i class="fa fa-pencil"></i> </a>                </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('vehiculo_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+
+{% endblock %}
+{% block javascripts -%}
+
+{% endblock %}

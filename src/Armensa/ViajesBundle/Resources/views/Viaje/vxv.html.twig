@@ -1,13 +1,10 @@
 {% extends '::base.html.twig' %}
 {% block body -%}
 <div class="page-header">
-    	<h1>Viaje</h1>     <a href="{{ path('viaje_new') }}" class="btn btn-primary btn-mini"> <i class="icon-plus icon-white"></i>
-                Crear Nuevo
-            </a>
+    	<h1>Viaje por Vehiculo</h1>     
 </div>
-<div >
-<table id="list" class="table"></table>
-</div>
+<table id="list" class="table table-bordered"></table>
+<div id="pager"></div>
 {% endblock %}
 {% block javascripts -%}
 <script>
@@ -20,7 +17,7 @@
         $('#list').jqGrid({
                 url:'{{path('viaje_list')}}',
                 datatype: "json",
-                colNames: ['id' ,'Fecha','Origen','Destino','Compra','Venta' ,'Peso' ,'Cant.','Conductor','Cliente','Vehículo','Proceso','Acciones'],
+                colNames: ['id' ,'Vehículo','Origen','Destino','Conductor', 'Fecha'],
                 jsonReader : {
                       root: "rows",
                       page: "page",
@@ -32,20 +29,11 @@
                       },
                 colModel: [
                     { name: 'id', index: 'id',jsonmap:"id",key: true, width: 35, sorttype: "int", search:true,hidden:true },
-                    { name: 'fecha', index: 'fecha', width: 50,searchoptions:datePick,formatter:dateFmt},
+                    { name: 'vehiculo', index: 'vehiculo', width: 50, align:'left'},
                     { name: 'origen', index: 'origen', width: 50 },
                     { name: 'destino', index: 'destino', width: 50 },
-                    { name: 'valorCompra', index: 'compra', width: 50 },
-                    { name: 'valorVenta', index: 'venta', width: 50 },
-
-                    { name: 'peso', index: 'peso', width: 50, align:'right',},
-                    { name: 'cantidad', index: 'cantidad', width: 50, align:'right' },
                     { name: 'conductor', index: 'conductor', width: 50, align:'left'},
-                    { name: 'cliente', index: 'cliente', width: 50, align:'left'},
-                    { name: 'vehiculo', index: 'vehiculo', width: 50, align:'left'},
-                    { name: 'tipoProceso', index: 'Proceso', width: 50, align:'left'},
-                    { name: 'acciones', index: 'id', width: 50, align:'center',formatter:botonera}
-
+                    { name: 'fecha', index: 'fecha', width: 50,searchoptions:datePick,formatter:dateFmt},      
                     ],
                 pager: '#pager',
                 rowNum: 20,

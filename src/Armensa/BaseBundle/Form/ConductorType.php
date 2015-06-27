@@ -19,7 +19,6 @@ class ConductorType extends AbstractType
             ->add('identificacion')
             ->add('telefono')
             ->add('direccion')
-            ->add('foto')
         ;
     }
 

@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 {% block body -%}
     <div class="page-header">
-    	<h1>Conductor</h1>     <a href="{{ path('conductor_new') }}" class="btn btn-primary btn-mini"> <i class="icon-plus icon-white"></i>
+    	<h1>Listado de Conductores</h1>     <a href="{{ path('conductor_new') }}" class="btn btn-primary btn-mini"> <i class="icon-plus icon-white"></i>
                 Crear Nuevo
             </a>
         </div>
@@ -9,29 +9,24 @@
         <thead>
             <tr>
 
-            	<th>Id</th>
+            	<th>Nombre del Conductor</th>
 
-            	<th>Nombre</th>
-
-            	<th>Identificacion</th>
+            	<th>Identificación</th>
 
             	<th>Telefono</th>
 
-            	<th>Direccion</th>
+            	<th>Dirección</th>
 
-            	<th>Foto</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('conductor_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.nombre }}</td>
+                <td><a href="{{ path('conductor_show', { 'id': entity.id }) }}">{{ entity.nombre}}</a></td>
                 <td>{{ entity.identificacion }}</td>
                 <td>{{ entity.telefono }}</td>
                 <td>{{ entity.direccion }}</td>
-                <td>{{ entity.foto }}</td>
                 <td style="text-align:center"><a href="{{ path('conductor_show', { 'id': entity.id }) }}" > <i class="fa fa-eye"></i> </a><a href="{{ path('conductor_edit', { 'id': entity.id }) }}" ><i class="fa fa-pencil"></i> </a>                </td>
             </tr>
         {% endfor %}

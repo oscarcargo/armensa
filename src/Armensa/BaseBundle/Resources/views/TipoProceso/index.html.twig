@@ -1,15 +1,13 @@
 {% extends '::base.html.twig' %}
 {% block body -%}
     <div class="page-header">
-    	<h1>TipoProceso</h1>     <a href="{{ path('tipoproceso_new') }}" class="btn btn-primary btn-mini"> <i class="icon-plus icon-white"></i>
+    	<h1>Tipo de Proceso</h1>     <a href="{{ path('tipoproceso_new') }}" class="btn btn-primary btn-mini"> <i class="icon-plus icon-white"></i>
                 Crear Nuevo
             </a>
         </div>
     <table class="data-tbl-simple table table-bordered table-condensed table-striped table-hover">
         <thead>
             <tr>
-
-            	<th>Id</th>
 
             	<th>Tipo</th>
                 <th>Acciones</th>
@@ -18,8 +16,7 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('tipoproceso_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.tipo }}</td>
+                <td><a href="{{ path('tipoproceso_show', { 'id': entity.id }) }}">{{ entity.tipo }}</a></td>
                 <td style="text-align:center"><a href="{{ path('tipoproceso_show', { 'id': entity.id }) }}" > <i class="fa fa-eye"></i> </a><a href="{{ path('tipoproceso_edit', { 'id': entity.id }) }}" ><i class="fa fa-pencil"></i> </a>                </td>
             </tr>
         {% endfor %}

@@ -1,15 +1,27 @@
 {% extends '::base.html.twig' %}
 
-{% block body -%}
-    <h1>Vehiculo creation</h1>
 
-    {{ form(form) }}
+{% block body %}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('vehiculo') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+<h1>Crear Nuevo Vehiculo</h1>
+
+<form action="{{ path('vehiculo') }}" method="post">
+    <div class="form-actions">
+        <th>Marca</th>
+        <br>{{form_widget(form.marca)}}</br>
+        <th>Modelo</th>
+        <br>{{form_widget(form.modelo)}}</br>
+        <th>Placa</th>
+        <br>{{form_widget(form.placa)}}</br>
+        <th>Tipo de Vehiculo</th>
+        <br>{{form_widget(form.tipoVehiculo)}}</br>
+
+    <a href="{{ path('vehiculo') }}" class="btn btn-mini"> Cancelar        </a>
+{{ form_rest(form) }}
+
+   
+
+    </div>
+</form>
+
 {% endblock %}

@@ -1,11 +1,28 @@
 {% extends '::base.html.twig' %}
 
-{% block body -%}
-    <h1>Crear Conductor</h1>
 
-    {{ form(form) }}
+{% block body %}
 
-        <div class="form-actions">
-        <a href="{{ path('conductor') }}" class="btn btn-mini">
-            Cancelar        </a>
+<h1>Crear Nuevo Conductor</h1>
+
+<form action="{{ path('conductor') }}" method="post">
+    <div class="form-actions">
+        <th>Nombre</th>
+        <br>{{form_widget(form.nombre)}}</br>
+        <th>Identificación</th>
+        <br>{{form_widget(form.identificacion)}}</br>
+        <th>Telefono</th>
+        <br>{{form_widget(form.telefono)}}</br>
+        <th>Dirección</th>
+        <br>{{form_widget(form.direccion)}}</br>
+
+    <a href="{{ path('conductor') }}" class="btn btn-mini"> Cancelar        </a>
+{{ form_rest(form) }}
+
+   
+
+    </div>
+</form>
+
 {% endblock %}
+            

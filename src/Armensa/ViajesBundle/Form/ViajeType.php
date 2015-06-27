@@ -25,7 +25,7 @@ class ViajeType extends AbstractType
             ->add('valorVenta')
             ->add('peso')
             ->add('cantidad')
-            ->add('observciones')
+            ->add('observaciones')
             //->add('usuario')
             ->add('conductor')
             ->add('vehiculo')

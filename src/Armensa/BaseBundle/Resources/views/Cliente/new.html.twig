@@ -1,11 +1,33 @@
+
+
+            
 {% extends '::base.html.twig' %}
 
-{% block body -%}
-    <h1>Crear Cliente</h1>
 
-    {{ form(form) }}
+{% block body %}
 
-        <div class="form-actions">
-        <a href="{{ path('cliente') }}" class="btn btn-mini">
-            Cancelar        </a>
+<h1>Crear Cliente</h1>
+
+<form action="{{ path('cliente') }}" method="post">
+    <div class="form-actions">
+        <th>NIT:</th>
+        <br>{{form_widget(form.nit)}}</br>
+        <th>Nombre:</th>
+        <br>{{form_widget(form.nombre)}}</br>
+        <th>Telefono:</th>
+        <br>{{form_widget(form.telefono)}}</br>
+        <th>Dirección:</th>
+        <br>{{form_widget(form.direccion)}}</br>
+        <th>e-mail:</th>
+        <br>{{form_widget(form.email)}}</br>
+
+    <a href="{{ path('cliente') }}" class="btn btn-mini"> Cancelar        </a>
+{{ form_rest(form) }}
+
+   
+
+    </div>
+</form>
+
 {% endblock %}
+            

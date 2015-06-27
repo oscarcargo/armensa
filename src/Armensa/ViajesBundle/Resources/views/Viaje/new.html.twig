@@ -1,14 +1,4 @@
 {% extends '::base.html.twig' %}
-
-{% block body -%}
-    <h1>Crear Viaje</h1>
-
-    {{ form(form) }}
-
-        <div class="form-actions">
-        <a href="{{ path('viaje') }}" class="btn btn-mini">
-            Cancelar        </a>
-{% endblock %}
 {%block javascripts%}
 <script>
     $(document).ready(function(){
@@ -16,3 +6,51 @@
     });
 </script>
 {%endblock%}
+
+{% block body %}
+
+<h1>Viajes</h1>
+
+<form action="{{ path('viaje') }}" method="post">
+    <div class="form-actions">
+        <div id="columna1">
+        <th>Fecha:</th>
+        <br>{{form_widget(form.fecha)}}</br>
+        <th>Lugar de Origen:</th>
+        <br>{{form_widget(form.origen)}}</br>
+        <th>Lugar de Destino:</th>
+        <br>{{form_widget(form.destino)}}</br>
+        <th>Valor Compra:</th>
+        <br>{{form_widget(form.valorCompra)}}</br>
+        <th>Valor Venta:</th>
+        <br>{{form_widget(form.valorVenta)}}</br>
+        <th>Peso KG:</th>
+        <br>{{form_widget(form.peso)}}</br>
+        <th>Cantidad Piezas:</th>
+        <br>{{form_widget(form.cantidad)}}</br>
+        </div>
+        <div id="columna2">
+        <th>Conductor:</th>
+        <br>{{form_widget(form.conductor)}}</br>
+        <th>Vehiculo:</th>
+        <br>{{form_widget(form.vehiculo)}}</br>
+        <th>Cliente:</th>
+        <br>{{form_widget(form.cliente)}}</br>
+        <th>Tipo de Proceso:</th>
+        <br>{{form_widget(form.tipoProceso)}}</br>
+        <th>Observaciones:</th>
+        <br>{{form_widget(form.observaciones)}}</br>
+        </div>
+    </div>
+    
+
+   <div class="form-actions">
+
+    <a href="{{ path('viaje') }}" class="btn btn-mini"> Cancelar        </a>
+{{ form_rest(form) }}
+</form>
+   </div>
+
+{% endblock %}
+
+

@@ -32,6 +32,17 @@ body.pull_top {
 header {
   background: rgba(0, 0, 0, 0.6) !important; }
 
+
+#columna1 {   
+float:left;   
+width:210px;   
+} 
+
+#columna2 {   
+margin-left:500px; 
+    float:center;
+}
+
 /* Navbar
 -------------------------------------------------- */
 .navbar {

@@ -1,15 +1,24 @@
-{{ form_start(form) }}
-<table>
-   <tr>
-       <th>Tipo</th>
-       <td>{{form_widget(form.tipo)}}</td>
-   </tr>
-   <tr>
-       <th>Tarifa</th>
-       <td>{{form_widget(form.tarifa)}}</td>
-   </tr>
-</table>
-<div style="display:none">
-    {{form_rest(form)}}
-</div>
-{{ form_end(form)}}
+{% extends '::base.html.twig' %}
+
+
+{% block body %}
+
+<h1>Crear Nuevo Vehiculo</h1>
+
+<form action="{{ path('tipovehiculo') }}" method="post">
+    <div class="form-actions">
+        <th>Tipo</th>
+        <br>{{form_widget(form.tipo)}}</br>
+        <th>Tarifa</th>
+        <br>{{form_widget(form.tarifa)}}</br>
+       
+
+    <a href="{{ path('tipovehiculo') }}" class="btn btn-mini"> Cancelar        </a>
+{{ form_rest(form) }}
+
+   
+
+    </div>
+</form>
+
+{% endblock %}
