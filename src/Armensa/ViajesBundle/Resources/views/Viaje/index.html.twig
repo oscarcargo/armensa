@@ -20,7 +20,7 @@
         $('#list').jqGrid({
                 url:'{{path('viaje_list')}}',
                 datatype: "json",
-                colNames: ['id' ,'Fecha','Origen','Destino','Compra','Venta' ,'Peso' ,'Cant.','Conductor','Cliente','Vehículo','Proceso','Acciones'],
+                colNames: ['id' ,'Fecha','Origen','Destino','Compra','Venta' ,'Profit','Peso' ,'Cant.','Conductor','Cliente','Vehículo','Proceso','Acciones'],
                 jsonReader : {
                       root: "rows",
                       page: "page",
@@ -37,7 +37,7 @@
                     { name: 'destino', index: 'destino', width: 50 },
                     { name: 'valorCompra', index: 'compra', width: 50 },
                     { name: 'valorVenta', index: 'venta', width: 50 },
-
+                    { name: 'profit', index: 'venta', width: 50, formatter:profitFn },
                     { name: 'peso', index: 'peso', width: 50, align:'right',},
                     { name: 'cantidad', index: 'cantidad', width: 50, align:'right' },
                     { name: 'conductor', index: 'conductor', width: 50, align:'left'},
@@ -69,6 +69,10 @@
                 function botonera(cellvalue, options, rowObject){
                     var html="<a href='javascript:void(0);' alt='Editar' rate_id="+rowObject.id+"><i class='fa fa-pencil'><\/i><\/a>";
                     return html;
+                }
+                function profitFn(cellvalue, options, rowObject){
+                    var profit = Number(rowObject.valorVenta) - Number(rowObject.valorCompra);
+                    return profit.toFixed(2);
                 }
             $(document).ready(function(){
                 $("#list").jqGrid('filterToolbar',{stringResult: true,searchOnEnter : false, defaultSearch:'cn'});
